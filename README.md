@@ -18,5 +18,6 @@ After making changes to either the common stylesheet or one of the subreddit's t
 
 ## To-Do
 
-[ ] Transfer the current stylesheet into the project
-[ ] Automatically apply new stylesheets on every new commit to main
+- [ ] Transfer the current stylesheet into the project
+
+- [ ] Automatically apply new stylesheets on every new commit to main
