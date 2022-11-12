@@ -1,0 +1,6 @@
+# Files and directories related to npm
+node_modules
+package-lock.json
+
+# related to Vite
+dist
