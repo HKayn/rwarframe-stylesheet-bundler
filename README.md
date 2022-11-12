@@ -16,8 +16,12 @@ After making changes to either the common stylesheet or one of the subreddit's t
 
 ```npm run build```
 
+Do note that Reddit only supports a subset of CSS and imposes additional restrictions. Those can be viewed [in Reddit's CSS validator](https://github.com/reddit-archive/reddit/blob/master/r2/r2/lib/cssfilter.py).
+
 ## To-Do
 
 - [ ] Transfer the current stylesheet into the project
 
 - [ ] Automatically apply new stylesheets on every new commit to main
+
+- [ ] Validate stylesheets according to Reddit's own validator when building
