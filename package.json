@@ -1,9 +1,8 @@
 {
   "scripts": {
-    "build": "vite build"
+    "build": "sass input:output --style=compressed --no-source-map"
   },
   "devDependencies": {
-    "sass": "^1.56.1",
-    "vite": "^3.2.3"
+    "sass": "^1.56.1"
   }
 }

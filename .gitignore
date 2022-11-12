@@ -2,5 +2,5 @@
 node_modules
 package-lock.json
 
-# related to Vite
-dist
+# related to Sass
+output

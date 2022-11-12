@@ -1,14 +1,14 @@
 # r/Warframe Stylesheet Bundler
 
-A Node project that bundles SCSS files containing the styling of subreddits of the r/Warframe family into CSS stylesheets using Vite. 
+A Node project that bundles SCSS files containing the styling of subreddits of the r/Warframe family into CSS stylesheets. 
 
 By separating the styling that is common across all subreddits from the bits that make up each subreddit's individual theme, changes to the styling can be applied to all subreddits in a more comfortable manner. 
 
-Additionally, stylesheets built with Vite are minified, saving a tiny bit of space.
+Additionally, stylesheets are minified, saving a tiny bit of space.
 
 ## Project Setup
 
-Install Node & NPM, then run the following: 
+[Install Node.js & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), then run the following: 
 
 ```npm install```
 
