@@ -1,14 +1,12 @@
 # r/Warframe Stylesheet Bundler
 
-A Node project that bundles SCSS files containing the styling of subreddits of the r/Warframe family into CSS stylesheets. 
+A Node project that bundles SCSS files containing the styling of subreddits of the r/Warframe family into CSS stylesheets, then compresses those aggressively using [clean-css](https://github.com/clean-css/clean-css). 
 
-By separating the styling that is common across all subreddits from the bits that make up each subreddit's individual theme, changes to the styling can be applied to all subreddits in a more comfortable manner. 
-
-Additionally, stylesheets are minified, saving a tiny bit of space.
+This project's aim is to simplify applying updates to the styling to all subreddits that use a CSS theme derived from the r/Warframe theme, as well as enabling streamlined development of the stylesheet using Sass features.
 
 ## Project Setup
 
-[Install Node.js & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), then run the following: 
+[Install Node.js & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), then run: 
 
 ```npm install```
 
@@ -20,7 +18,9 @@ Do note that Reddit only supports a subset of CSS and imposes additional restric
 
 ## To-Do
 
-- [ ] Transfer the current stylesheet into the project
+- [x] Transfer the current stylesheet into the project
+
+- [ ] Separate stylesheet into common and subreddit-specific SCSS files
 
 - [ ] Automatically apply new stylesheets on every new commit to main
 
