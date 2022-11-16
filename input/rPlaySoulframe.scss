@@ -1,1 +1,441 @@
-@use "common";
+@use "partials/base" with (
+	$de-users: ("DE_Steve", "DigitalExtremes")
+);
+@use "partials/flairSoulframeScroll";
+
+/*
+	Required images:
+	Soulframe-5
+	SoulframeArrows
+	SoulframeThumbnail
+	SoulframeThumbnailNSFW
+	SoulframeThumbnailSpoiler
+*/
+
+.read-next {
+  .read-next-header {
+    &:after {
+      width: -24px !important;
+      height: 0 !important;
+      z-index: 100;
+      content: "";
+      font-size: 0;
+      position: absolute;
+      right: -25px;
+      margin-top: -25px;
+      border-top: 25px solid transparent;
+      border-bottom: 0 solid transparent;
+      border-left: 25px solid RGBA(212, 49, 23, 1);
+    }
+  }
+
+  .read-next-list {
+    padding: 10px;
+    margin-top: -25px;
+  }
+}
+
+.side {
+	.md {
+		> ol {
+			left: 550px;
+			top: 17px;
+		}
+
+		h2 {
+			&:after {
+				border-left: 30px solid RGBA(79, 64, 58, 1);
+			}
+		}
+	
+		h5 {
+			top: 181px;
+		}
+	}
+
+	ul.content a {
+		color: RGBA(235, 235, 235, 1);
+	}
+}
+
+#header {
+	background: url(%%SoulframeCampBannerFull%%) red;
+
+	.pagename.redditname a {
+		background: url(%%Soulframe-5%%) 0 0 no-repeat;
+		width: 550px;
+		height: 185px;
+		display: inline-block;
+		position: absolute;
+		left: 0px;
+		top: -5px;
+		text-indent: -9999px;
+		opacity: 0.85;
+		transition: opacity 0.1s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+			transition: opacity 0.1s ease-in-out;
+		}
+	}
+}
+
+/* hot/new/rising/etc strip */
+
+.tabmenu {
+	li {
+		margin: 0;
+
+		a {
+			&:hover {
+				background-color: RGBA(192, 192, 192, 0.6);
+			}
+		}
+	}
+
+	&.formtab {
+		/* link post/text post buttons on submit page */
+
+		a {
+			background: #2f3931;
+		}
+	}
+}
+
+.subscribers .number:after {
+  content: " Souls looking for a frame";
+}
+
+.side .titlebox .users-online .number:after {
+  content: " Envoys starting their journey.)" !important;
+}
+
+.morelink {
+	background: RGBA(105, 109, 83, 0.5);
+
+	&:hover {
+		background: RGBA(47, 57, 49, 1);
+	}
+}
+
+#header-img-a {
+	background: url(%%snoo%%) no-repeat, RGBA(47, 57, 49, 1);
+  &:hover {
+		background: url(%%snoo%%) no-repeat, RGBA(1, 54, 28, 1);
+	}
+}
+
+/*
+.side .md h4{
+z-index:99;
+line-height:20px;
+background:#303030;
+cursor:default;
+padding:0 5px;
+font-size:11px;
+font-weight:500;
+height:20px;
+font-family:"Arial Narrow",Tahoma,sans-serif;
+margin:0;
+text-align:center;
+text-transform:uppercase;
+color:#fff;
+letter-spacing:1px;
+text-shadow:0 1px 2px #222;
+transition:width 0.5s ease-in-out .0s;
+}
+*/
+
+.morelink {
+  background: RGBA(105, 109, 83, 0.5);
+  color: #fff;
+
+	&:hover {
+		background: RGBA(47, 57, 49, 1);
+	}
+}
+
+.sidecontentbox .title h1 {
+	background: RGBA(79, 64, 58, 1);
+
+	&:after {
+		border-left: 30px solid RGBA(79, 64, 58, 1);
+	}
+}
+
+.roundfield textarea,
+.roundfield input[type="text"],
+.roundfield input[type="url"],
+.roundfield input[type="password"],
+.roundfield input[type="number"] {
+  color: #aaa !important;
+}
+
+/*LINK TABLE & CONTENT*/
+
+body {
+  color: #aaa;
+  background: #c7c2b6;
+}
+
+.link.promotedlink.promoted {
+  background: RGBA(240, 240, 235, 1) !important;
+}
+
+.linklisting .thing {
+  background: RGBA(240, 240, 235, 1);
+}
+
+.thing .title.loggedin.click a:visited,
+.thing .title.loggedin.click a,
+.thing .title.loggedin a:visited,
+.thing .title.click a,
+.thing .title a:visited {
+  color: #915d47 !important;
+}
+
+.thing .title a,
+.thing .title.loggedin a {
+  color: #4775d1 !important;
+}
+
+.res-nightmode .arrow.up,
+.res-nightmode .arrow.up:hover,
+.res-nightmode .arrow.upmod,
+.res-nightmode .arrow.down,
+.res-nightmode .arrow.down:hover,
+.res-nightmode .arrow.downmod,
+.arrow.up,
+.arrow.up:hover,
+.arrow.upmod,
+.arrow.down,
+.arrow.down:hover,
+.arrow.downmod {
+  background-image: url(%%SoulframeArrows%%) !important;
+}
+
+.arrow.upmod:focus:after {
+  content: "___";
+  background: url(%%SoulframeArrows%%) -46px 0;
+  bottom: 0;
+  font-size: 16px;
+  color: transparent;
+  opacity: 0;
+  animation: upvote ease-out 0.5s;
+  animation-iteration-count: 1;
+}
+
+.link .midcol,
+.link .buttons li a:not(.title) {
+  opacity: 0.65 !important;
+}
+
+.thumbnail {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  height: 70px;
+
+	&.self {
+		margin-top: 12px;
+		background: url(%%SoulframeThumbnail%%) !important;
+		background-repeat: no-repeat !important;
+		opacity: 0.8;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+.link .usertext .md {
+  color: #2a201e;
+}
+
+.tabmenu.formtab .selected a,
+.tabmenu.formtab a:hover {
+  background: #696d53 !important;
+}
+
+.roundfield textarea,
+.roundfield input[type="text"],
+.roundfield input[type="url"],
+.roundfield input[type="password"],
+.roundfield input[type="number"] {
+  color: #2a201e;
+}
+
+.infobar,
+.infobar.mellow {
+  background: RGBA(1, 49, 23, 1);
+  border: 1px solid RGBA(1, 49, 23, 1);
+}
+
+.reason-popup-header,
+.reason-popup-footer,
+.flairselector h2 {
+  background: #2f3931 !important;
+}
+
+.panestack-title .title {
+  color: gray;
+}
+
+.content blockquote {
+  border-left-color: RGBA(8, 145, 38, 0.4);
+}
+
+.comments-page .linklisting .thing {
+  background: RGBA(245, 245, 235, 1);
+  margin-bottom: 50px;
+}
+
+.res-commentBoxes .comment {
+  border-left: 3px solid RGBA(8, 145, 38, 0.4) !important;
+}
+
+.res-commentBoxes .comment:hover {
+  border-left: 3px solid RGBA(8, 145, 38, 0.8) !important;
+}
+
+.thing.comment {
+  background-color: #f5f5eb !important;
+  border-left: 3px solid RGBA(8, 145, 38, 0.4) !important;
+  color: #f11 !important;
+  margin: 0 0 5px 0px !important;
+}
+
+.thing.comment:hover {
+  border-left: 3px solid RGBA(8, 145, 38, 0.8) !important;
+}
+
+.md {
+  color: #2a201e;
+}
+
+.thing.comment {
+  background-color: #f5f5eb !important;
+  .thing.comment {
+    background-color: #ebebe1 !important;
+    .thing.comment {
+      background-color: #f5f5eb !important;
+			.thing.comment {
+        background-color: #ebebe1 !important;
+        .thing.comment {
+          background-color: #f5f5eb !important;
+					.thing.comment {
+            background-color: #ebebe1 !important;
+            .thing.comment {
+              background-color: #f5f5eb !important;
+							.thing.comment {
+                background-color: #ebebe1 !important;
+                .thing.comment {
+                  background-color: #f5f5eb !important;
+									.thing.comment {
+                    background-color: #ebebe1 !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.side .md table:nth-of-type(2) tbody td:nth-of-type(2),
+.wiki-page-filtering_guide
+  .content
+  table:nth-of-type(1)
+  tbody
+  tr
+  td:nth-of-type(2) {
+  width: 100px;
+}
+
+.side .md {
+  color: #9f9f9f;
+}
+
+/*turns top quote in sidebar into menu container*/
+
+.titlebox blockquote:last-child {
+  background: RGBA(51, 41, 38, 1);
+  left: 0px !important;
+  box-shadow: 0 1px 3px #000;
+}
+
+/*turns first paragraph into menu title*/
+
+.titlebox blockquote:first-child p:first-child {
+  z-index: 10;
+}
+
+/*turns the lists into menus*/
+.titlebox blockquote ul {
+  margin-right: 5px !important;
+}
+
+/* hovering a dropdown option*/
+.titlebox blockquote ul li a:hover {
+  z-index: 1000;
+}
+
+/* dropdown selection item */
+.titlebox blockquote ul li {
+  transform: translateX(-18px);
+  border-left: 5px #2f3931 solid;
+  min-width: 120px;
+  padding: 4px 7px;
+}
+
+/* menu top-level option*/
+.titlebox blockquote ul li:first-child {
+  background: RGBA(47, 57, 49, 1);
+}
+
+/* when hovering over menu top-level option*/
+.titlebox blockquote ul li:first-child:hover {
+  background: RGBA(1, 54, 28, 1);
+}
+
+.linkflair div.entry p .linkflairlabel {
+  opacity: 0.45;
+}
+
+.over18 .thumbnail {
+  content: url(%%SoulframeThumbnailNSFW%%) !important;
+}
+
+.linkflair-spo .thumbnail,
+.spoiler .thumbnail {
+  content: url(%%SoulframeThumbnailSpoiler%%) !important;
+}
+
+.res-commentBoxes .content .comment:hover {
+  border-left: 3px solid RGBA(8, 145, 38, 0.8) !important;
+}
+
+.res-commentBoxes .content .comment {
+  border-left: 3px solid RGBA(8, 145, 38, 0.4) !important;
+}
+
+.flairemoji {
+  top: 4px;
+  height: 25px;
+  width: 30px;
+  vertical-align: top;
+}
+.flairrichtext {
+  overflow: visible;
+}
+.flairrichtext:after {
+  left: 25px;
+}
+.res-nightmode .flairrichtext[style*="color"] {
+  background-color: transparent !important;
+}
+
+.res-nightmode .side .usertext-body .md ol {
+  background-color: transparent;
+}

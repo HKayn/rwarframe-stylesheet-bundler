@@ -1,0 +1,55 @@
+/*
+	Required image files: 
+	FlairBackgroundSeg
+	FlairBackgroundBeg
+	FlairBackgroundEnd
+*/
+
+.flair {
+  background: url(%%FlairBackgroundSeg%%) 0 0 repeat-x !important;
+  border: 0 solid #fff;
+  color: #e8e2d3 !important;
+  font-weight: 400;
+  line-height: 42px;
+  margin-right: 25px;
+  margin-left: 25px;
+  border-radius: 0;
+  height: 34px !important;
+  white-space: nowrap;
+
+  &:empty {
+		width: 48px;
+
+		&:after {
+			left: 0;
+		}
+  }
+
+	&:before {
+		background: url(%%FlairBackgroundBeg%%) no-repeat;
+		display: inline-block;
+		width: 21px;
+		height: 31px;
+		z-index: 5;
+		content: "";
+		position: relative;
+		font-size: 0;
+		top: 1px;
+		left: -19px;
+		vertical-align: top;
+	}
+
+	&:after {
+		background: url(%%FlairBackgroundEnd%%) no-repeat;
+		display: inline-block;
+		width: 21px;
+		height: 31px;
+		z-index: 5;
+		content: "";
+		position: relative;
+		font-size: 0;
+		top: 1px;
+		left: 23px;
+		vertical-align: top;
+	}
+}

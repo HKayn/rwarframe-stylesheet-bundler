@@ -1,0 +1,47 @@
+/*
+	Required image files: 
+	flairVitruvian
+*/
+
+.flair {
+	background: url(%%flairVitruvian%%) 0 -31px repeat-x !important;
+	border: 0 solid #FFF;
+	color: #AAA;
+	line-height: 42px;
+	margin-right: 25px;
+	border-radius: 0;
+	height: 31px !important;
+	white-space: nowrap;
+
+	&:empty {
+		width: 48px;
+
+		&:after {
+			left: 0;
+		}
+	}
+
+	&:before {
+		display: inline-block;
+		height: 30px;
+		margin-right: 3px;
+		vertical-align: middle;
+		content: "";
+		position: relative;
+		top: -9px;
+	}
+
+	&:after {
+		background: url(%%flairVitruvian%%) no-repeat;
+		display: inline-block;
+		width: 21px;
+		height: 31px;
+		z-index: 5;
+		content: "";
+		position: relative;
+		font-size: 0;
+		top: 0;
+		left: 23px;
+		vertical-align: top;
+		}
+}

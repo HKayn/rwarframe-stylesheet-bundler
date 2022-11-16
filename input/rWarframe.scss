@@ -1,1 +1,402 @@
-@use "common";
+@use "partials/base";
+@use "partials/flairVitruvian";
+@use "partials/headerNavigationSkewed";
+
+/*
+	Required images:
+	GrossArchonBanner
+	WarframeLogo
+	Veilbreaker
+	arrows
+	thumbnail-nsfw
+	thumbnail-spoiler
+*/
+
+/*Dank maymays*/
+
+.md
+  a[href^="/"]:not([href^="/r/"]):not([href^="/u/"]):not([href^="#s"]):not([href="/s"]):not([href^="/message"]),
+.thing
+  .md:not(.RESdupeimg)
+  > a[href^="#"]:not([href="#s"]):not([href^="#res"]) {
+  display: inline-block;
+  position: relative;
+  padding-top: 0;
+  text-align: center;
+  font-family: arial, sans-serif;
+  font-size: 18px;
+  color: white !important;
+  text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    -1px -1px 0 #000, 1px 1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000,
+    -1px -1px 1px #000;
+  cursor: default;
+}
+
+.thing .md {
+  a[href^="/"]:not([href^="/r/"]):not([href^="/u/"]):not([href^="#s"]):not([href="/s"]):not([href^="/message"])
+    > strong,
+  a[href^="#"]:not([href^="#s"]) > strong {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 4px;
+    font-weight: normal;
+  }
+}
+
+#header {
+	height: 238px;
+	margin-bottom: -38px;
+	background: url(%%GrossArchonBanner%%) 0px 0,#42546C;
+	z-index: 1;
+
+	.pagename.redditname a {
+		background: url(%%WarframeLogo%%) 0 0 no-repeat;
+		width: 420px;
+		height: 80px;
+		display: inline-block;
+		position: absolute;
+		left: 20px;
+		top: 70px;
+		text-indent: -9999px;
+		opacity: 0.8;
+		transition: opacity .1s ease-in-out;
+
+		&:hover{
+			opacity: 1;
+			transition: opacity .1s ease-in-out;
+		}
+	}
+}
+
+/* hot/new/rising/etc strip */
+
+.tabmenu {
+	&:not(.formtab) {
+		li {
+			margin: 0;
+			transform: skewX(45deg);
+			background-color: RGBA(127,127,127,0.6);
+
+			a {
+				transform: skewX(-45deg);
+				display: block;
+				background: none;
+				padding: 6px 12px;
+			}
+		}
+	}
+
+	li {
+		a {
+			padding: 6px;
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
+
+	&.formtab {
+		a {
+			background: RGBA(20, 68, 91, 0.5);
+		}
+	}
+}
+
+/* Subscriber & online user labels */
+
+.subscribers .number:after {
+  content: " Brothers of Kahl";
+}
+
+.side .titlebox .users-online .number:after {
+  content: " broken veils.)" !important;
+}
+
+.morelink {
+	background: RGBA(20, 68, 91, 0.5);
+
+	&:hover {
+		background: RGBA(63, 143, 181, 1);
+	}
+}
+
+/* skewed header-img-a */
+
+#header-img-a {
+	background: url(%%Veilbreaker%%) no-repeat,RGBA(225,225,225,0.8);
+	width: 45px;
+	left: 41px;
+	z-index: 100;
+	&:hover {
+		background: url(%%Veilbreaker%%),RGBA(225,225,225,1);
+		&:before {
+			border-right: 38px solid RGBA(225,225,225,1);
+		}
+		&:after {
+			border-left: 38px solid RGBA(225,225,225,1);
+		}
+	}
+	&:before {
+		width: 0 !important;
+		height: 0 !important;
+		z-index: 100;
+		content: "xd";
+		position: absolute;
+		top: 0;
+		left: -38px;
+		border-top: 0 solid transparent;
+		border-bottom: 38px solid transparent;
+		border-right: 38px solid RGBA(225,225,225,0.8);
+	}
+	&:after {
+		width: 0 !important;
+		height: 0 !important;
+		z-index: 100;
+		content: "xd";
+		position: absolute;
+		top: 0;
+		left: 45px;
+		border-top: 38px solid transparent;
+		border-bottom: 0 solid transparent;
+		border-left: 38px solid RGBA(225,225,225,0.8);
+	}
+}
+
+/* Not sure what this is for */
+
+.side a[href$="#flair"],
+.side a[href$="#light"],
+.thing:not(.linkflair) .flairselectbtn,
+.linkflair-tbf .flairselectbtn {
+  display: block;
+  font-weight: 500;
+  background: RGBA(20, 68, 91, 1);
+  color: #fff !important;
+  margin: 0 !important;
+  text-shadow: 0 1px 2px #744087;
+  text-align: center;
+}
+
+.side a[href$="#flair"],
+.side a[href$="#light"] {
+  height: 20px;
+  line-height: 30px;
+  font: 20px "Arial Narrow", Tahoma, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 0 18px 0;
+}
+
+.side .md {
+	h2 {
+		background: RGBA(212, 49, 23, 1);
+
+		&:after {
+			border-left: 30px solid RGBA(212, 49, 23, 1);
+		}
+	}
+	h4 {
+		/* "Latest update per platform" sidebar box */
+
+		z-index: 99;
+		line-height: 20px;
+		background: #1a1a1a;
+		border: 1px ridge #a8945c;
+		cursor: default;
+		padding: 5px 10px;
+		font-size: 11px;
+		font-weight: 500;
+		height: 20px;
+		font-family: "Arial Narrow",Tahoma,sans-serif;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+		color: #fff;
+		letter-spacing: 1px;
+		text-shadow: 0 1px 2px #222;
+		transition: width 0.5s ease-in-out .0s;
+		&:nth-of-type(1) {
+			&:before {
+				font-size: 11px;
+				content: "UPDATE: ";
+			}
+		}
+		&:nth-of-type(2) {
+			&:before {
+				font-size: 11px;
+				content: "LATEST DEVSTREAM: ";
+			}
+		}
+		a {
+			color: #FFF;
+			border-bottom: 1px dotted #FFF;
+			&:hover {
+				color: #E6E243 !important;
+				border-bottom: 1px solid #FFF;
+				transition: border-bottom .1s ease-in-out,color .1s ease-in-out;
+			}
+		}
+		a[href$="#PS4"] {
+			color: #8080FF !important;
+			text-decoration: none !important;
+			font-weight: bold !important;
+			pointer-events: none;
+			border-bottom: 0 !important;
+		}
+		a[href$="#XB1"] {
+			color: #008000 !important;
+			text-decoration: none !important;
+			font-weight: bold !important;
+			pointer-events: none;
+			border-bottom: 0 !important;
+		}
+		a[href$="#NS"] {
+			color: #FF2020 !important;
+			text-decoration: none !important;
+			font-weight: bold !important;
+			pointer-events: none;
+			border-bottom: 0 !important;
+		}
+		a[href$="#PC"] {
+			text-decoration: none !important;
+			font-weight: bold !important;
+			pointer-events: none;
+			border-bottom: 0 !important;
+		}
+	}
+}
+
+.formtab:before {
+  top: -25px;
+  content: "Start a discussion";
+}
+
+.premium-banner {
+  margin: 15px 0 0;
+}
+
+.morelink {
+  background: RGBA(20, 68, 91, 0.5);
+	color: #fff;
+
+	&:hover {
+		background: RGBA(63, 143, 181, 1);
+	}
+}
+
+.sidebox.submit {
+  &.submit-link {
+    top: 252px;
+  }
+  &.submit-text {
+    top: 252px;
+  }
+}
+
+.sidecontentbox .title h1 {
+	background: RGBA(212, 49, 23, 1);
+
+	&:after {
+		border-left: 30px solid RGBA(212, 49, 23, 1);
+	}
+}
+
+.flair {
+  color: rgba(170, 170, 170, 1) !important;
+}
+
+.res-nightmode .arrow.up,
+.res-nightmode .arrow.up:hover,
+.res-nightmode .arrow.upmod,
+.res-nightmode .arrow.down,
+.res-nightmode .arrow.down:hover,
+.res-nightmode .arrow.downmod,
+.arrow.up,
+.arrow.up:hover,
+.arrow.upmod,
+.arrow.down,
+.arrow.down:hover,
+.arrow.downmod {
+  background-image: url(%%arrows%%) !important;
+}
+
+.arrow.upmod:focus:after {
+  content: "___";
+  background: url(%%arrows%%) -46px 0;
+  bottom: 0;
+  font-size: 16px;
+  color: transparent;
+  opacity: 0;
+  animation: upvote ease-out 0.5s;
+  animation-iteration-count: 1;
+}
+
+.thumbnail {
+  margin-top: 12px;
+  background: url(%%thumbnail%%) !important;
+  margin-bottom: 20px;
+
+	&.self {
+		margin-top: 12px;
+		background: url(%%thumbnail%%) !important;
+		background-repeat: no-repeat !important;
+	}
+}
+
+.linkinfo {
+  margin-top: 50px;
+}
+
+/*turns top quote in sidebar into menu container*/
+.titlebox blockquote:last-child {
+  z-index: 100;
+}
+
+.titlebox blockquote ul li:first-child {
+	transform: skewX(45deg);
+	a {
+		transform: skewX(-45deg) !important;
+	}
+}
+
+body:not(.listing-page) .linklisting .link {
+  margin-bottom: 40px;
+}
+
+.over18 .thumbnail {
+  content: url(%%thumbnail-nsfw%%) !important;
+}
+
+.linkflair-spo .thumbnail,
+.spoiler .thumbnail {
+  content: url(%%thumbnail-spoiler%%) !important;
+}
+
+.thing.comment {
+  &:hover {
+    border: 0 solid #555 !important;
+    border-left-color: rgb(85, 85, 85);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-left: 3px solid RGBA(212, 49, 23, 1) !important;
+  }
+}
+
+.flair .flairemoji[title*=":LotusDE:"] {
+  animation: hovering linear 3s infinite running;
+}
+
+a[href$="Kliuqard"] ~ .flair:hover {
+  color: #14131d !important;
+  font-size: 0;
+
+  &:before {
+    content: "I'm never getting it.";
+    color: #aaa !important;
+    font-size: 12px;
+  }
+
+  .flairemoji {
+    animation: hovering 3s ease-in-out infinite;
+  }
+}
