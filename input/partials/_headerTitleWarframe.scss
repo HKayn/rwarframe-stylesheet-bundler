@@ -1,0 +1,19 @@
+#header {
+	.pagename.redditname a {
+		background: url(%%WarframeLogo%%) 0 0 no-repeat;
+		width: 420px;
+		height: 80px;
+		display: inline-block;
+		position: absolute;
+		left: 20px;
+		top: 70px;
+		text-indent: -9999px;
+		opacity: 0.8;
+		transition: opacity .1s ease-in-out;
+
+		&:hover{
+			opacity: 1;
+			transition: opacity .1s ease-in-out;
+		}
+	}
+}

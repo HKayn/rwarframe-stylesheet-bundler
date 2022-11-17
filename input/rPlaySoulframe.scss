@@ -1,8 +1,31 @@
-@use "partials/base";
+@use "partials/base" with (
+  $bodyColor: #aaaaaa,
+	$bodyBackground: #c7c2b6,
+  $headerBackground: "url(%%SoulframeCampBannerFull%%) red",
+	$headerNavigationBackground: RGBA(51, 41, 38, 1),
+  $headerNavigationHomebuttonBackground: "url(%%snoo%%) no-repeat, RGBA(47, 57, 49, 1)",
+  $headerNavigationHomebuttonHoverBackground: "url(%%snoo%%) no-repeat, RGBA(1, 54, 28, 1)",
+  $headerNavigationDropdownBackground: RGBA(47, 57, 49, 1),
+  $headerNavigationDropdownHoverBackground: RGBA(1, 54, 28, 1),
+
+  $sideBackground: #1E1E1E,
+  $sideSubmitCalltoactionBackground: #7c7d74,
+  $sideSubmitButtonBackground: RGBA(105, 109, 83, 0.5), 
+  $sideSubmitButtonHoverBackground: RGBA(47, 57, 49, 1),
+  $sideSubmitButtonActiveBackground: #696d53,
+  $sideSectionTitleBackground: RGBA(79, 64, 58, 1),
+  $sideSectionTitleColor: #ffffff,
+  $sideSectionBackground: #303030,
+
+  $contentPostBackground: RGBA(240, 240, 235, 1)
+);
+
 @use "partials/deResponse" with (
 	$de-users: ("DE_Steve", "DigitalExtremes")
 );
-@use "partials/flairSoulframeScroll";
+
+@use "partials/headerTitleSoulframe";
+@use "partials/flairScytale";
 
 /*
 	Required images:
@@ -42,58 +65,10 @@
 			left: 550px;
 			top: 17px;
 		}
-
-		h2 {
-			&:after {
-				border-left: 30px solid RGBA(79, 64, 58, 1);
-			}
-		}
 	}
 
 	ul.content a {
 		color: RGBA(235, 235, 235, 1);
-	}
-}
-
-#header {
-	background: url(%%SoulframeCampBannerFull%%) red;
-
-	.pagename.redditname a {
-		background: url(%%Soulframe-5%%) 0 0 no-repeat;
-		width: 550px;
-		height: 185px;
-		display: inline-block;
-		position: absolute;
-		left: 0px;
-		top: -5px;
-		text-indent: -9999px;
-		opacity: 0.85;
-		transition: opacity 0.1s ease-in-out;
-
-		&:hover {
-			opacity: 1;
-			transition: opacity 0.1s ease-in-out;
-		}
-	}
-}
-
-/* hot/new/rising/etc strip */
-
-.tabmenu {
-	li {
-		a {
-			&:hover {
-				background-color: RGBA(192, 192, 192, 0.6);
-			}
-		}
-	}
-
-	&.formtab {
-		/* link post/text post buttons on submit page */
-
-		a {
-			background: #2f3931;
-		}
 	}
 }
 
@@ -103,21 +78,6 @@
 
 .side .titlebox .users-online .number:after {
   content: " Envoys starting their journey.)" !important;
-}
-
-.morelink {
-	background: RGBA(105, 109, 83, 0.5);
-
-	&:hover {
-		background: RGBA(47, 57, 49, 1);
-	}
-}
-
-#header-img-a {
-	background: url(%%snoo%%) no-repeat, RGBA(47, 57, 49, 1);
-  &:hover {
-		background: url(%%snoo%%) no-repeat, RGBA(1, 54, 28, 1);
-	}
 }
 
 /*
@@ -141,23 +101,6 @@ transition:width 0.5s ease-in-out .0s;
 }
 */
 
-.morelink {
-  background: RGBA(105, 109, 83, 0.5);
-  color: #fff;
-
-	&:hover {
-		background: RGBA(47, 57, 49, 1);
-	}
-}
-
-.sidecontentbox .title h1 {
-	background: RGBA(79, 64, 58, 1);
-
-	&:after {
-		border-left: 30px solid RGBA(79, 64, 58, 1);
-	}
-}
-
 .roundfield textarea,
 .roundfield input[type="text"],
 .roundfield input[type="url"],
@@ -167,19 +110,6 @@ transition:width 0.5s ease-in-out .0s;
 }
 
 /*LINK TABLE & CONTENT*/
-
-body {
-  color: #aaa;
-  background: #c7c2b6;
-}
-
-.link.promotedlink.promoted {
-  background: RGBA(240, 240, 235, 1) !important;
-}
-
-.linklisting .thing {
-  background: RGBA(240, 240, 235, 1);
-}
 
 .thing .title.loggedin.click a:visited,
 .thing .title.loggedin.click a,
@@ -434,3 +364,10 @@ body {
 .res-nightmode .side .usertext-body .md ol {
   background-color: transparent;
 }
+
+/*
+.side .md > blockquote:nth-of-type(1) {
+  position: absolute;
+  top: 97px;
+}
+*/

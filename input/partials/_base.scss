@@ -1,5 +1,25 @@
 $headerHeight: 200px !default;
 
+$bodyColor: #aaaaaa !default;
+$bodyBackground: #1a1a1a !default;
+$headerBackground: #42546c !default;
+$headerNavigationBackground: RGBA(15, 15, 15, 1) !default;
+$headerNavigationHomebuttonBackground: RGBA(225, 225, 225, 0.8) !default;
+$headerNavigationHomebuttonHoverBackground: RGBA(225, 225, 225, 1) !default;
+$headerNavigationDropdownBackground: RGBA(212, 49, 23, 1) !default;
+$headerNavigationDropdownHoverBackground: RGBA(255, 54, 28, 1) !default;
+
+$sideBackground: #1E1E1E !default;
+$sideSubmitCalltoactionBackground: RGBA(20, 68, 91, 1) !default;
+$sideSubmitButtonBackground: RGBA(20, 68, 91, 0.5) !default;
+$sideSubmitButtonHoverBackground: #3F8FB5 !default;
+$sideSubmitButtonActiveBackground: #3F8FB5 !default;
+$sideSectionTitleBackground: RGBA(212, 49, 23, 1) !default;
+$sideSectionTitleColor: #ffffff !default;
+$sideSectionBackground: #303030 !default;
+
+$contentPostBackground: RGBA(38, 38, 38, 1) !default;
+
 /*MARKDOWN FIXES*/
 
 .md {
@@ -541,69 +561,70 @@ $headerHeight: 200px !default;
 
 #header {
   height: $headerHeight;
-	margin-bottom: calc(200px - $headerHeight);
+  margin-bottom: calc(200px - $headerHeight);
+  background: #{$headerBackground};
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 0 solid #314d5b;
   overflow: visible;
 
-	.tabmenu {
-		display: flex;
-		position: absolute !important;
-		left: 7px !important;
-		top: 174px !important;
-		z-index: 99 !important;
-	
-		li {
-			margin: 0;
-			box-sizing: border-box;
-			height: 21px;
-			background-color: RGBA(127,127,127,0.6);
-	
-			&:hover {
-				background-color: RGBA(192, 192, 192, 0.6) !important;
-				transition: background 0.2s ease-in-out;
-			}
-	
-			&.selected {
-				background-color: RGBA(222, 222, 222, 0.6) !important;
-	
-				a {
-					color: #ff4500;
-					border: none;
-					background: none;
-					font-size: 10px;
-				}
-			}
-	
-			a {
-				display: block;
-				font-family: "Arial Narrow", Tahoma, sans-serif;
-				font-weight: 500;
-				font-size: 10px;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				padding: 5px;
-				text-shadow: 0 1px 2px #744087;
-				color: #fff;
-				border: 0 solid #000;
-				background: none;
-	
-				&:hover {
-					color: #e6e243;
-					text-shadow: 0 1px 2px #744087;
-					transition: background 0.2s ease-in-out, border-bottom 0.1s ease-in-out,
-						color 0.1s ease-in-out;
-				}
-			}
-		}
-	}
+  .tabmenu {
+    display: flex;
+    position: absolute !important;
+    left: 7px !important;
+    top: 174px !important;
+    z-index: 99 !important;
+
+    li {
+      margin: 0;
+      box-sizing: border-box;
+      height: 21px;
+      background-color: RGBA(127, 127, 127, 0.6);
+
+      &:hover {
+        background-color: RGBA(192, 192, 192, 0.6) !important;
+        transition: background 0.2s ease-in-out;
+      }
+
+      &.selected {
+        background-color: RGBA(222, 222, 222, 0.6) !important;
+
+        a {
+          color: #ff4500;
+          border: none;
+          background: none;
+          font-size: 10px;
+        }
+      }
+
+      a {
+        display: block;
+        font-family: "Arial Narrow", Tahoma, sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 5px;
+        text-shadow: 0 1px 2px #744087;
+        color: #fff;
+        border: 0 solid #000;
+        background: none;
+
+        &:hover {
+          color: #e6e243;
+          text-shadow: 0 1px 2px #744087;
+          transition: background 0.2s ease-in-out,
+            border-bottom 0.1s ease-in-out, color 0.1s ease-in-out;
+        }
+      }
+    }
+  }
 }
 
 /*SIDEBAR AND SIDEBAR ACCESSORIES*/
 
 #search {
-	margin: 50px 0 22px 0;
+  margin: 50px 0 22px 0;
 
   input[type="text"] {
     border: 1px solid gray;
@@ -643,7 +664,7 @@ $headerHeight: 200px !default;
   background: RGBA(48, 48, 48, 1);
 }
 .side {
-  background: RGBA(30, 30, 30, 1);
+  background: $sideBackground;
   margin-top: -5px;
   margin-right: 10px;
   padding: 100px 20px 10px 20px;
@@ -655,14 +676,14 @@ $headerHeight: 200px !default;
     }
   }
 
-	.sidebox.submit {
-		&.submit-link {
-			top: 279px;
-		}
-		&.submit-text {
-			top: 279px;
-		}
-	}
+  .sidebox.submit {
+    &.submit-link {
+      top: 279px;
+    }
+    &.submit-text {
+      top: 279px;
+    }
+  }
 }
 .morelink {
   .nub {
@@ -864,7 +885,7 @@ span.subscribers {
       }
     }
     h5 {
-			/* "Start a discussion" label specifically in sidebar on frontpage */
+      /* "Start a discussion" label specifically in sidebar on frontpage */
       display: block;
       height: 20px;
       line-height: 30px;
@@ -874,7 +895,7 @@ span.subscribers {
       font: 20px "Arial Narrow", Tahoma, sans-serif;
       font-weight: 500;
       text-transform: uppercase;
-      background: RGBA(20, 68, 91, 1);
+      background: $sideSubmitCalltoactionBackground;
       color: #fff;
       letter-spacing: 1px;
       text-shadow: 0 1px 2px #744087;
@@ -893,8 +914,8 @@ span.subscribers {
       font: 16px "Arial Narrow", Tahoma, sans-serif;
       font-weight: 500;
       text-transform: uppercase;
-      background: RGBA(212, 49, 23, 1);
-      color: #fff;
+      background: $sideSectionTitleBackground;
+      color: $sideSectionTitleColor;
       letter-spacing: 1px;
       text-shadow: 0 1px 2px #744087;
       margin-bottom: 0;
@@ -909,13 +930,13 @@ span.subscribers {
         margin-top: -5px;
         border-top: 30px solid transparent;
         border-bottom: 0 solid transparent;
-        border-left: 30px solid RGBA(212, 49, 23, 1);
+        border-left: 30px solid $sideSectionTitleBackground;
       }
     }
   }
   .tagline {
     border-radius: 0;
-    background: RGBA(48, 48, 48, 1);
+    background: $sideSectionBackground;
     border: 0 solid #fff;
     width: 290px;
     margin: 0;
@@ -928,7 +949,7 @@ span.subscribers {
   }
   ul.content {
     border-radius: 0;
-    background: RGBA(48, 48, 48, 1);
+    background: $sideSectionBackground;
     border: 0 solid #fff;
     width: 290px;
     margin: 0;
@@ -936,6 +957,10 @@ span.subscribers {
     padding: 5px 10px;
     a {
       color: #39c;
+
+      &.c-btn {
+        color: #ffffff;
+      }
     }
   }
 }
@@ -962,7 +987,7 @@ div.titlebox {
   }
 }
 .morelink {
-  background: #373737;
+  background: $sideSubmitButtonBackground;
   color: #fff;
   border: 0 solid #fff;
   border-bottom: 0 solid transparent;
@@ -984,7 +1009,7 @@ div.titlebox {
     }
   }
   &:hover {
-    background: #797979;
+    background: $sideSubmitButtonHoverBackground;
     text-decoration: none;
     position: relative;
     opacity: 1;
@@ -1016,7 +1041,7 @@ h1.redditname {
   display: block;
   height: 32px;
   width: 94px;
-  background: RGBA(225, 225, 225, 0.8);
+  background: #{$headerNavigationHomebuttonBackground};
   text-indent: -9999px;
   position: absolute;
   left: 6.5px;
@@ -1025,7 +1050,7 @@ h1.redditname {
   padding: 3px 0;
   margin: 0;
   &:hover {
-    background: RGBA(225, 225, 225, 1);
+    background: #{$headerNavigationHomebuttonHoverBackground};
   }
 }
 .thing {
@@ -1073,7 +1098,7 @@ h1.redditname {
 .titlebox {
   form.toggle {
     border-radius: 0;
-    background: RGBA(48, 48, 48, 1);
+    background: $sideSectionBackground;
     border: 0 solid #fff;
     width: 290px;
     margin: 0;
@@ -1087,7 +1112,7 @@ h1.redditname {
 }
 .leavemoderator {
   border-radius: 0;
-  background: RGBA(48, 48, 48, 1);
+  background: $sideSectionBackground;
   border: 0 solid #fff;
   width: 290px;
   margin: 0;
@@ -1130,8 +1155,8 @@ h1.redditname {
       font: 16px "Arial Narrow", Tahoma, sans-serif;
       font-weight: 500;
       text-transform: uppercase;
-      background: RGBA(212, 49, 23, 1);
-      color: #fff;
+      background: $sideSectionTitleBackground;
+      color: $sideSectionTitleColor;
       letter-spacing: 1px;
       text-shadow: 0 1px 2px #744087;
       &:after {
@@ -1145,7 +1170,7 @@ h1.redditname {
         margin-top: -5px;
         border-top: 30px solid transparent;
         border-bottom: 0 solid transparent;
-        border-left: 30px solid RGBA(212, 49, 23, 1);
+        border-left: 30px solid $sideSectionTitleBackground;
       }
     }
   }
@@ -1200,7 +1225,7 @@ h1.redditname {
 .md {
   ul {
     list-style: none;
-    background: RGBA(48, 48, 48, 1);
+    background: $sideSectionBackground;
     margin: 0;
     padding: 0;
     padding-top: 5px;
@@ -1416,8 +1441,8 @@ h1.redditname {
   }
 }
 body {
-  color: #aaa;
-  background: #1a1a1a;
+  color: $bodyColor;
+  background: #{$bodyBackground};
   > .content {
     .link {
       .midcol {
@@ -1431,7 +1456,7 @@ a {
 }
 .link.promotedlink.promoted {
   border: 0 #444 solid !important;
-  background: RGBA(38, 38, 38, 1) !important;
+  background: $contentPostBackground !important;
   padding: 5px 10px 5px 10px !important;
   margin: 1px 5px !important;
   min-height: 74px !important;
@@ -1454,7 +1479,7 @@ a {
   .thing {
     top: 45px;
     border: 0 #444 solid;
-    background: RGBA(38, 38, 38, 1);
+    background: $contentPostBackground;
     padding: 5px 10px 5px 10px;
     margin: 1px 5px;
     min-height: 80px !important;
@@ -1918,86 +1943,86 @@ textarea.title {
     }
   }
 
-	.tabmenu {
-		&.formtab {
-			/* link post/text post buttons on submit page */
-	
-			display: inline-block;
-			padding-right: 10px;
-			right: 0 !important;
-			left: unset !important;
-			top: 246px !important;
-			z-index: 9;
-			position: absolute !important;
-			margin-top: 35px;
-	
-			&:before {
-				/* "Start a discussion" label specifically on submit page */
-				top: -50px;
-				content: "Start a discussion";
-				display: block;
-				height: 20px;
-				line-height: 30px;
-				width: 325px;
-				padding: 10px 5px 10px 20px;
-				margin: 10px 0;
-				font: 20px "Arial Narrow", Tahoma, sans-serif;
-				font-weight: 500;
-				text-transform: uppercase;
-				background: RGBA(20, 68, 91, 1);
-				color: #fff;
-				letter-spacing: 1px;
-				text-shadow: 0 1px 2px #744087;
-				position: absolute;
-				right: 10px;
-				text-align: center;
-			}
-	
-			.selected a {
-				color: #ffffff;
-				border: 0 solid white;
-				background: #3f8fb5;
-				opacity: 1;
-				transition: background 0.2s ease-in-out;
-			}
-	
-			a {
-				font-family: "Arial Narrow", Tahoma, sans-serif;
-				font-weight: 500;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				padding: 6px 4px;
-				text-shadow: 0 1px 2px #744087;
-				border: 0 solid #000;
-				color: #fff;
-				font-size: 18px;
-				letter-spacing: 1px;
-				box-sizing: border-box;
-				width: 175px !important;
-				height: 41px;
-				text-align: center;
-				vertical-align: middle;
-				background: RGBA(20, 68, 91, 0.5);
-	
-				&:after {
-					content: " Post";
-				}
-	
-				&:hover {
-					background: #3f8fb5 !important;
-					opacity: 1;
-					transition: background 0.2s ease-in-out;
-				}
-			}
-	
-			li {
-				background: none;
-				a {
-					display: table-cell;
-				}
-			}
-		}
-	}
+  .tabmenu {
+    &.formtab {
+      /* link post/text post buttons on submit page */
+
+      display: inline-block;
+      padding-right: 10px;
+      right: 0 !important;
+      left: unset !important;
+      top: 246px !important;
+      z-index: 9;
+      position: absolute !important;
+      margin-top: 35px;
+
+      &:before {
+        /* "Start a discussion" label specifically on submit page */
+        top: -50px;
+        content: "Start a discussion";
+        display: block;
+        height: 20px;
+        line-height: 30px;
+        width: 325px;
+        padding: 10px 5px 10px 20px;
+        margin: 10px 0;
+        font: 20px "Arial Narrow", Tahoma, sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        background: $sideSubmitCalltoactionBackground;
+        color: #fff;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 2px #744087;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+      }
+
+      .selected a {
+        color: #ffffff;
+        border: 0 solid white;
+        background: $sideSubmitButtonActiveBackground;
+        opacity: 1;
+        transition: background 0.2s ease-in-out;
+      }
+
+      a {
+        font-family: "Arial Narrow", Tahoma, sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 4px;
+        text-shadow: 0 1px 2px #744087;
+        border: 0 solid #000;
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        width: 175px !important;
+        height: 41px;
+        text-align: center;
+        vertical-align: middle;
+        background: $sideSubmitButtonBackground;
+
+        &:after {
+          content: " Post";
+        }
+
+        &:hover {
+          background: $sideSubmitButtonHoverBackground !important;
+          opacity: 1;
+          transition: background 0.2s ease-in-out;
+        }
+      }
+
+      li {
+        background: none;
+        a {
+          display: table-cell;
+        }
+      }
+    }
+  }
 }
 .submit {
   .formtabs-content {
@@ -2169,19 +2194,19 @@ iframe[name*="frame/about"] ~ .content {
     background-color: #1a1a1a !important;
     .thing.comment {
       background-color: #111 !important;
-			.thing.comment {
+      .thing.comment {
         background-color: #1a1a1a !important;
         .thing.comment {
           background-color: #111 !important;
-					.thing.comment {
+          .thing.comment {
             background-color: #1a1a1a !important;
             .thing.comment {
               background-color: #111 !important;
-							.thing.comment {
+              .thing.comment {
                 background-color: #1a1a1a !important;
                 .thing.comment {
                   background-color: #111 !important;
-									.thing.comment {
+                  .thing.comment {
                     background-color: #1a1a1a !important;
                   }
                 }
@@ -2252,7 +2277,7 @@ a[href="#s"] {
             font-size: 0;
             border: 0 solid #eee;
             padding: 5px 3px;
-            background-color: RGBA(48, 48, 48, 1);
+            background-color: $sideSectionBackground;
           }
         }
         tbody {
@@ -2261,7 +2286,7 @@ a[href="#s"] {
             height: 20px;
             border: 0 solid #fff;
             padding: 4px 10px;
-            background-color: RGBA(48, 48, 48, 1);
+            background-color: $sideSectionBackground;
             text-align: center;
             &:nth-of-type(2) {
               border-bottom: 1px solid #666;
@@ -2304,7 +2329,7 @@ a[href="#s"] {
             font-size: 0;
             border: 0 solid #eee;
             padding: 5px 3px;
-            background-color: RGBA(48, 48, 48, 1);
+            background-color: $sideSectionBackground;
           }
         }
         tbody {
@@ -2312,7 +2337,7 @@ a[href="#s"] {
             width: 50px;
             height: 20px;
             border: 0 solid #fff;
-            background-color: RGBA(48, 48, 48, 1);
+            background-color: $sideSectionBackground;
             &:nth-of-type(3) {
               width: 160px;
               padding-left: 5px;
@@ -2466,18 +2491,18 @@ td {
       border-left: none;
       width: 100%;
       position: absolute !important;
-      background: RGBA(15, 15, 15, 0.15);
+      background: #{$headerNavigationBackground};
       top: 200px !important;
       left: 0 !important;
       height: 32px;
       box-shadow: 0 1px 0px #fff;
       padding-bottom: 6px;
       z-index: 100;
-			pointer-events: none;
+      pointer-events: none;
 
-			ul {
-				pointer-events: all;
-			}
+      ul {
+        pointer-events: all;
+      }
     }
     &:first-child {
       p {
@@ -2513,7 +2538,7 @@ td {
         padding: 2px 7px;
         &:first-child {
           display: block;
-          background: RGBA(212, 49, 23, 1);
+          background: $headerNavigationDropdownBackground;
           text-align: center;
           border: none;
           line-height: 32px;
@@ -2528,7 +2553,7 @@ td {
             cursor: default;
           }
           &:hover {
-            background: RGBA(255, 54, 28, 1);
+            background: $headerNavigationDropdownHoverBackground;
             border-bottom: 3px solid #fff;
             color: #e6e243;
             transition: background 0.2s ease-in-out,

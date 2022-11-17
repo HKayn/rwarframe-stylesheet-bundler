@@ -1,12 +1,35 @@
 @use "partials/base" with (
+	$bodyColor: #aaaaaa,
+	$bodyBackground: #1a1a1a,
+	$headerBackground: "url(%%GrossArchonBanner%%) 0px 0, #42546C",
+	$headerNavigationBackground: RGBA(15, 15, 15, 0.15),
+	$headerNavigationHomebuttonBackground: "url(%%Veilbreaker%%) no-repeat, RGBA(225, 225, 225, 0.8)",
+	$headerNavigationHomebuttonHoverBackground: "url(%%Veilbreaker%%),RGBA(225, 225, 225, 1)",
+	$headerNavigationDropdownBackground: RGBA(212, 49, 23, 1),
+	$headerNavigationDropdownHoverBackground: RGBA(255, 54, 28, 1),
+
+	$sideBackground: #1E1E1E,
+	$sideSubmitCalltoactionBackground: RGBA(20, 68, 91, 1),
+	$sideSubmitButtonBackground: RGBA(20, 68, 91, 0.5),
+	$sideSubmitButtonHoverBackground: #3F8FB5,
+	$sideSubmitButtonActiveBackground: #3F8FB5,
+	$sideSectionTitleBackground: RGBA(212, 49, 23, 1),
+	$sideSectionTitleColor: #ffffff,
+	$sideSectionBackground: #303030,
+
+	$contentPostBackground: RGBA(38, 38, 38, 1),
+
 	$headerHeight: 238px
 );
+
 @use "partials/deResponse" with (
 	$de-users: ("rebulast", "DE_Steve", "DE-Purzzle", "superdeanio",
   "DigitalExtremes", "razput1n", /*"DEAidan",*/ "DE_Saske", "DE_KickBot",
   "DE_Megan", "de_taylor", "DE-Marcus", "DEDanielle", "DE-Bear", "Patchworkkid",
   "DEConnor", "DE-Momaw", "DE-Zach", "DE_Skree", "DE_Dudley")
 );
+
+@use "partials/headerTitleWarframe";
 @use "partials/flairVitruvian";
 @use "partials/headerNavigationSkewed";
 
@@ -20,7 +43,7 @@
 	thumbnail-spoiler
 */
 
-/*Dank maymays*/
+/* Dank maymays? */
 
 .md
   a[href^="/"]:not([href^="/r/"]):not([href^="/u/"]):not([href^="#s"]):not([href="/s"]):not([href^="/message"]),
@@ -53,26 +76,7 @@
 }
 
 #header {
-	background: url(%%GrossArchonBanner%%) 0px 0,#42546C;
 	z-index: 1;
-
-	.pagename.redditname a {
-		background: url(%%WarframeLogo%%) 0 0 no-repeat;
-		width: 420px;
-		height: 80px;
-		display: inline-block;
-		position: absolute;
-		left: 20px;
-		top: 70px;
-		text-indent: -9999px;
-		opacity: 0.8;
-		transition: opacity .1s ease-in-out;
-
-		&:hover{
-			opacity: 1;
-			transition: opacity .1s ease-in-out;
-		}
-	}
 }
 
 .tabmenu.formtab {
@@ -91,24 +95,6 @@
   content: " broken veils.)" !important;
 }
 
-/* ??? */
-
-.morelink {
-	background: RGBA(20, 68, 91, 0.5);
-
-	&:hover {
-		background: RGBA(63, 143, 181, 1);
-	}
-}
-
-/* Header image */
-
-#header-img-a {
-	background: url(%%Veilbreaker%%) no-repeat,RGBA(225,225,225,0.8);
-	&:hover {
-		background: url(%%Veilbreaker%%),RGBA(225,225,225,1);
-	}
-}
 
 /* Not sure what this is for */
 
