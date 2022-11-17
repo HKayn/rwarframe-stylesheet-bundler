@@ -1,4 +1,12 @@
-@use "partials/base";
+@use "partials/base" with (
+	$headerHeight: 238px
+);
+@use "partials/deResponse" with (
+	$de-users: ("rebulast", "DE_Steve", "DE-Purzzle", "superdeanio",
+  "DigitalExtremes", "razput1n", /*"DEAidan",*/ "DE_Saske", "DE_KickBot",
+  "DE_Megan", "de_taylor", "DE-Marcus", "DEDanielle", "DE-Bear", "Patchworkkid",
+  "DEConnor", "DE-Momaw", "DE-Zach", "DE_Skree", "DE_Dudley")
+);
 @use "partials/flairVitruvian";
 @use "partials/headerNavigationSkewed";
 
@@ -45,8 +53,6 @@
 }
 
 #header {
-	height: 238px;
-	margin-bottom: -38px;
 	background: url(%%GrossArchonBanner%%) 0px 0,#42546C;
 	z-index: 1;
 
@@ -69,36 +75,9 @@
 	}
 }
 
-/* hot/new/rising/etc strip */
-
-.tabmenu {
-	&:not(.formtab) {
-		li {
-			margin: 0;
-			transform: skewX(45deg);
-			background-color: RGBA(127,127,127,0.6);
-
-			a {
-				transform: skewX(-45deg);
-				display: block;
-				background: none;
-				padding: 6px 12px;
-			}
-		}
-	}
-
-	li {
-		a {
-			padding: 6px;
-			padding-left: 4px;
-			padding-right: 4px;
-		}
-	}
-
-	&.formtab {
-		a {
-			background: RGBA(20, 68, 91, 0.5);
-		}
+.tabmenu.formtab {
+	a {
+		background: RGBA(20, 68, 91, 0.5);
 	}
 }
 
@@ -112,6 +91,8 @@
   content: " broken veils.)" !important;
 }
 
+/* ??? */
+
 .morelink {
 	background: RGBA(20, 68, 91, 0.5);
 
@@ -120,45 +101,12 @@
 	}
 }
 
-/* skewed header-img-a */
+/* Header image */
 
 #header-img-a {
 	background: url(%%Veilbreaker%%) no-repeat,RGBA(225,225,225,0.8);
-	width: 45px;
-	left: 41px;
-	z-index: 100;
 	&:hover {
 		background: url(%%Veilbreaker%%),RGBA(225,225,225,1);
-		&:before {
-			border-right: 38px solid RGBA(225,225,225,1);
-		}
-		&:after {
-			border-left: 38px solid RGBA(225,225,225,1);
-		}
-	}
-	&:before {
-		width: 0 !important;
-		height: 0 !important;
-		z-index: 100;
-		content: "xd";
-		position: absolute;
-		top: 0;
-		left: -38px;
-		border-top: 0 solid transparent;
-		border-bottom: 38px solid transparent;
-		border-right: 38px solid RGBA(225,225,225,0.8);
-	}
-	&:after {
-		width: 0 !important;
-		height: 0 !important;
-		z-index: 100;
-		content: "xd";
-		position: absolute;
-		top: 0;
-		left: 45px;
-		border-top: 38px solid transparent;
-		border-bottom: 0 solid transparent;
-		border-left: 38px solid RGBA(225,225,225,0.8);
 	}
 }
 
@@ -266,15 +214,6 @@
 	}
 }
 
-.formtab:before {
-  top: -25px;
-  content: "Start a discussion";
-}
-
-.premium-banner {
-  margin: 15px 0 0;
-}
-
 .morelink {
   background: RGBA(20, 68, 91, 0.5);
 	color: #fff;
@@ -282,15 +221,6 @@
 	&:hover {
 		background: RGBA(63, 143, 181, 1);
 	}
-}
-
-.sidebox.submit {
-  &.submit-link {
-    top: 252px;
-  }
-  &.submit-text {
-    top: 252px;
-  }
 }
 
 .sidecontentbox .title h1 {
@@ -350,13 +280,6 @@
 /*turns top quote in sidebar into menu container*/
 .titlebox blockquote:last-child {
   z-index: 100;
-}
-
-.titlebox blockquote ul li:first-child {
-	transform: skewX(45deg);
-	a {
-		transform: skewX(-45deg) !important;
-	}
 }
 
 body:not(.listing-page) .linklisting .link {

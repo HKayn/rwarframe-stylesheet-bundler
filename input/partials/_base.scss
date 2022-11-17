@@ -1,3 +1,5 @@
+$headerHeight: 200px !default;
+
 /*MARKDOWN FIXES*/
 
 .md {
@@ -538,116 +540,71 @@
 }
 
 #header {
-  height: 200px;
+  height: $headerHeight;
+	margin-bottom: calc(200px - $headerHeight);
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 0 solid #314d5b;
   overflow: visible;
-}
 
-.tabmenu {
-  display: flex;
-  position: absolute !important;
-  left: 7px !important;
-  top: 176px !important;
-  z-index: 99 !important;
-
-  li {
-    &:hover {
-      background-color: RGBA(192, 192, 192, 0.6) !important;
-    }
-
-    &.selected {
-      background-color: RGBA(222, 222, 222, 0.6) !important;
-
-      a {
-        color: #ff4500;
-        border: 0 solid white;
-        font-size: 10px;
-      }
-    }
-
-    a {
-      font-family: "Arial Narrow", Tahoma, sans-serif;
-      font-weight: 500;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 5px;
-      text-shadow: 0 1px 2px #744087;
-      color: #fff;
-      border: 0 solid #000;
-
-      &:hover {
-        background: none;
-        color: #e6e243;
-        text-shadow: 0 1px 2px #744087;
-        transition: background 0.2s ease-in-out, border-bottom 0.1s ease-in-out,
-          color 0.1s ease-in-out;
-      }
-    }
-  }
-
-  &.formtab {
-    /* link post/text post buttons on submit page */
-
-    display: inline-block;
-    padding-right: 10px;
-    right: 0 !important;
-    left: unset !important;
-    top: 246px !important;
-    z-index: 9;
-    position: absolute !important;
-
-    .selected a {
-      color: #ff4500;
-      border: 0 solid white;
-      font-size: 10px;
-      background: #3f8fb5;
-      opacity: 1;
-      transition: background 0.2s ease-in-out;
-    }
-
-    a {
-      font-family: "Arial Narrow", Tahoma, sans-serif;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 6px 4px;
-      text-shadow: 0 1px 2px #744087;
-      border: 0 solid #000;
-      color: #fff;
-      font-size: 18px;
-      letter-spacing: 1px;
-      box-sizing: border-box;
-      width: 175px !important;
-      height: 41px;
-      text-align: center;
-      vertical-align: middle;
-      background: RGBA(20, 68, 91, 0.5);
-
-      &:after {
-        content: " Post";
-      }
-
-      &:hover {
-        background: #3f8fb5 !important;
-        opacity: 1;
-        transition: background 0.2s ease-in-out;
-      }
-    }
-
-    li {
-      a {
-        display: table-cell;
-      }
-    }
-  }
+	.tabmenu {
+		display: flex;
+		position: absolute !important;
+		left: 7px !important;
+		top: 174px !important;
+		z-index: 99 !important;
+	
+		li {
+			margin: 0;
+			box-sizing: border-box;
+			height: 21px;
+			background-color: RGBA(127,127,127,0.6);
+	
+			&:hover {
+				background-color: RGBA(192, 192, 192, 0.6) !important;
+				transition: background 0.2s ease-in-out;
+			}
+	
+			&.selected {
+				background-color: RGBA(222, 222, 222, 0.6) !important;
+	
+				a {
+					color: #ff4500;
+					border: none;
+					background: none;
+					font-size: 10px;
+				}
+			}
+	
+			a {
+				display: block;
+				font-family: "Arial Narrow", Tahoma, sans-serif;
+				font-weight: 500;
+				font-size: 10px;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 5px;
+				text-shadow: 0 1px 2px #744087;
+				color: #fff;
+				border: 0 solid #000;
+				background: none;
+	
+				&:hover {
+					color: #e6e243;
+					text-shadow: 0 1px 2px #744087;
+					transition: background 0.2s ease-in-out, border-bottom 0.1s ease-in-out,
+						color 0.1s ease-in-out;
+				}
+			}
+		}
+	}
 }
 
 /*SIDEBAR AND SIDEBAR ACCESSORIES*/
 
 #search {
+	margin: 50px 0 22px 0;
+
   input[type="text"] {
     border: 1px solid gray;
     font-size: 14px;
@@ -697,6 +654,15 @@
       color: #999;
     }
   }
+
+	.sidebox.submit {
+		&.submit-link {
+			top: 279px;
+		}
+		&.submit-text {
+			top: 279px;
+		}
+	}
 }
 .morelink {
   .nub {
@@ -898,6 +864,7 @@ span.subscribers {
       }
     }
     h5 {
+			/* "Start a discussion" label specifically in sidebar on frontpage */
       display: block;
       height: 20px;
       line-height: 30px;
@@ -914,7 +881,7 @@ span.subscribers {
       position: absolute;
       right: 10px;
       text-align: center;
-      top: 230px;
+      top: 229px;
     }
     h2 {
       display: block;
@@ -1950,6 +1917,87 @@ textarea.title {
       }
     }
   }
+
+	.tabmenu {
+		&.formtab {
+			/* link post/text post buttons on submit page */
+	
+			display: inline-block;
+			padding-right: 10px;
+			right: 0 !important;
+			left: unset !important;
+			top: 246px !important;
+			z-index: 9;
+			position: absolute !important;
+			margin-top: 35px;
+	
+			&:before {
+				/* "Start a discussion" label specifically on submit page */
+				top: -50px;
+				content: "Start a discussion";
+				display: block;
+				height: 20px;
+				line-height: 30px;
+				width: 325px;
+				padding: 10px 5px 10px 20px;
+				margin: 10px 0;
+				font: 20px "Arial Narrow", Tahoma, sans-serif;
+				font-weight: 500;
+				text-transform: uppercase;
+				background: RGBA(20, 68, 91, 1);
+				color: #fff;
+				letter-spacing: 1px;
+				text-shadow: 0 1px 2px #744087;
+				position: absolute;
+				right: 10px;
+				text-align: center;
+			}
+	
+			.selected a {
+				color: #ffffff;
+				border: 0 solid white;
+				background: #3f8fb5;
+				opacity: 1;
+				transition: background 0.2s ease-in-out;
+			}
+	
+			a {
+				font-family: "Arial Narrow", Tahoma, sans-serif;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 6px 4px;
+				text-shadow: 0 1px 2px #744087;
+				border: 0 solid #000;
+				color: #fff;
+				font-size: 18px;
+				letter-spacing: 1px;
+				box-sizing: border-box;
+				width: 175px !important;
+				height: 41px;
+				text-align: center;
+				vertical-align: middle;
+				background: RGBA(20, 68, 91, 0.5);
+	
+				&:after {
+					content: " Post";
+				}
+	
+				&:hover {
+					background: #3f8fb5 !important;
+					opacity: 1;
+					transition: background 0.2s ease-in-out;
+				}
+			}
+	
+			li {
+				background: none;
+				a {
+					display: table-cell;
+				}
+			}
+		}
+	}
 }
 .submit {
   .formtabs-content {
@@ -2425,6 +2473,11 @@ td {
       box-shadow: 0 1px 0px #fff;
       padding-bottom: 6px;
       z-index: 100;
+			pointer-events: none;
+
+			ul {
+				pointer-events: all;
+			}
     }
     &:first-child {
       p {
@@ -3597,18 +3650,6 @@ html {
       margin-right: 370px;
     }
   }
-  #header {
-    margin-bottom: 2px;
-    transition: all 0.1s ease-in-out;
-  }
-  .side {
-    .md {
-      h5 {
-        top: 127px;
-        transition: all 0.1s ease-in-out;
-      }
-    }
-  }
   .sidebox.submit.submit-link {
     top: 177px;
     transition: all 0.1s ease-in-out;
@@ -4182,90 +4223,6 @@ a.tb-module-disabled {
 
 #preview-table > table {
   width: 893px !important;
-}
-
-/*DE Response CSS (Credit goes to /r/PathOfExile and /r/Rainbow6)*/
-
-$de-users: ("rebulast", "DE_Steve", "DE-Purzzle", "superdeanio",
-  "DigitalExtremes", "razput1n", /*"DEAidan",*/ "DE_Saske", "DE_KickBot",
-  "DE_Megan", "de_taylor", "DE-Marcus", "DEDanielle", "DE-Bear", "Patchworkkid",
-  "DEConnor", "DE-Momaw", "DE-Zach", "DE_Skree", "DE_Dudley") !default;
-
-@each $de-user in $de-users {
-  .thing {
-    a {
-      &.author[href$="/#{$de-user}"] {
-        color: #f2a900 !important;
-        font-weight: bold;
-      }
-    }
-    &.link {
-      a.author[href$="/#{$de-user}"]:after {
-        background: url(%%DE-logo%%) 0 0/87px no-repeat;
-        position: absolute;
-        top: 0;
-        left: 88%;
-        width: 10%;
-        content: "";
-        height: 100%;
-        transition: opacity 0.2s ease-in-out;
-        transition-delay: 1s;
-        opacity: 0.25;
-      }
-
-      &:hover a.author[href$="/#{$de-user}"]:after {
-        transition: opacity 0.2s ease-in-out;
-        transition-delay: 0.5s;
-        opacity: 0.75;
-      }
-    }
-  }
-
-  .comment[data-author="#{$de-user}"] {
-    box-shadow: inset 0 22px 0 rgba(242, 169, 0, 0.15) !important;
-    border-left: 3px solid rgba(242, 169, 0, 0.15) !important;
-
-    &:before {
-      content: "DE response";
-      background-color: rgba(242, 169, 0, 0.4);
-      font-family: Helvetica Neue, Segoe UI, sans-serif;
-      text-transform: uppercase;
-      color: #fff;
-      font-weight: 600;
-      font-size: 10px;
-      padding: 4px 16px 4px 19px;
-      box-shadow: 0 0 0 0 #fff;
-      position: relative;
-      top: -6px;
-      left: -18px;
-    }
-
-    &:hover {
-      box-shadow: inset 0 22px 0 #f2a900 !important;
-      border-left: 3px solid #f2a900 !important;
-
-      &:before {
-        background-color: #f2a900;
-      }
-    }
-  }
-
-  .res-userHighlight .tagline .author[href$="/#{$de-user}"] {
-    color: #fff !important;
-    font-weight: bold;
-    padding: 0 2px 0 2px;
-    border-radius: 3px;
-    background-color: #f2a900 !important;
-  }
-
-  .res-userHighlight .tagline .author.submitter[href$="/#{$de-user}"] {
-    background-color: #f2a900 !important;
-  }
-
-  .res-userHighlight .tagline .author[href$="/#{$de-user}"]:hover,
-  .res-userHighlight .tagline .author.submitter[href$="/#{$de-user}"]:hover {
-    background-color: #efc977 !important;
-  }
 }
 
 /*

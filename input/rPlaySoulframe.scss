@@ -1,4 +1,5 @@
-@use "partials/base" with (
+@use "partials/base";
+@use "partials/deResponse" with (
 	$de-users: ("DE_Steve", "DigitalExtremes")
 );
 @use "partials/flairSoulframeScroll";
@@ -47,10 +48,6 @@
 				border-left: 30px solid RGBA(79, 64, 58, 1);
 			}
 		}
-	
-		h5 {
-			top: 181px;
-		}
 	}
 
 	ul.content a {
@@ -84,8 +81,6 @@
 
 .tabmenu {
 	li {
-		margin: 0;
-
 		a {
 			&:hover {
 				background-color: RGBA(192, 192, 192, 0.6);
@@ -361,8 +356,8 @@ body {
 
 .titlebox blockquote:last-child {
   background: RGBA(51, 41, 38, 1);
-  left: 0px !important;
   box-shadow: 0 1px 3px #000;
+	height: 33px; /* 1px more than usual to make up for the missing bottom border */
 }
 
 /*turns first paragraph into menu title*/

@@ -1,0 +1,80 @@
+/*DE Response CSS (Credit goes to /r/PathOfExile and /r/Rainbow6)*/
+
+$de-users: ("DigitalExtremes") !default;
+
+@each $de-user in $de-users {
+  .thing {
+    a {
+      &.author[href$="/#{$de-user}"] {
+        color: #f2a900 !important;
+        font-weight: bold;
+      }
+    }
+    &.link {
+      a.author[href$="/#{$de-user}"]:after {
+        background: url(%%DE-logo%%) 0 0/87px no-repeat;
+        position: absolute;
+        top: 0;
+        left: 88%;
+        width: 10%;
+        content: "";
+        height: 100%;
+        transition: opacity 0.2s ease-in-out;
+        transition-delay: 1s;
+        opacity: 0.25;
+      }
+
+      &:hover a.author[href$="/#{$de-user}"]:after {
+        transition: opacity 0.2s ease-in-out;
+        transition-delay: 0.5s;
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .comment[data-author="#{$de-user}"] {
+    box-shadow: inset 0 22px 0 rgba(242, 169, 0, 0.15) !important;
+    border-left: 3px solid rgba(242, 169, 0, 0.15) !important;
+
+    &:before {
+      content: "DE response";
+      background-color: rgba(242, 169, 0, 0.4);
+      font-family: Helvetica Neue, Segoe UI, sans-serif;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 600;
+      font-size: 10px;
+      padding: 4px 16px 4px 19px;
+      box-shadow: 0 0 0 0 #fff;
+      position: relative;
+      top: -6px;
+      left: -18px;
+    }
+
+    &:hover {
+      box-shadow: inset 0 22px 0 #f2a900 !important;
+      border-left: 3px solid #f2a900 !important;
+
+      &:before {
+        background-color: #f2a900;
+      }
+    }
+  }
+
+  .res-userHighlight .tagline .author[href$="/#{$de-user}"] {
+    color: #fff !important;
+    font-weight: bold;
+    padding: 0 2px 0 2px;
+    border-radius: 3px;
+    background-color: #f2a900 !important;
+  }
+
+  .res-userHighlight .tagline .author.submitter[href$="/#{$de-user}"] {
+    background-color: #f2a900 !important;
+  }
+
+  .res-userHighlight .tagline .author[href$="/#{$de-user}"]:hover,
+  .res-userHighlight .tagline .author.submitter[href$="/#{$de-user}"]:hover {
+    background-color: #efc977 !important;
+  }
+}
