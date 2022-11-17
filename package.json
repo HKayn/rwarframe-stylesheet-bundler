@@ -1,7 +1,7 @@
 {
   "scripts": {
     "prebuild": "del-cli output/*.css",
-    "build": "sass input:output --no-source-map && cleancss -O2 'all:on;overrideProperties:off' --batch output/*.css",
+    "build": "sass input:output --no-source-map && cleancss -O2 'all:on;overrideProperties:off' --batch output/*.css && node scripts/removeCharsetRules.js",
     "postbuild": "del-cli output/*[!-][!m][!i][!n].css"
   },
   "devDependencies": {
