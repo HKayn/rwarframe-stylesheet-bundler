@@ -24,9 +24,9 @@
 
 @use "partials/deResponse" with (
 	$de-users: ("rebulast", "DE_Steve", "DE-Purzzle", "superdeanio",
-  "DigitalExtremes", "razput1n", /*"DEAidan",*/ "DE_Saske", "DE_KickBot",
-  "DE_Megan", "de_taylor", "DE-Marcus", "DEDanielle", "DE-Bear", "Patchworkkid",
-  "DEConnor", "DE-Momaw", "DE-Zach", "DE_Skree", "DE_Dudley")
+  "DigitalExtremes", "razput1n", "DE_Saske", "DE_KickBot",
+  "DE_Megan", "de_taylor", "DE-Marcus", "DEDanielle", "Patchworkkid",
+  "DEConnor", "DE-Momaw", "DE-Zach", "DE_Skree", "DE_Dudley", "DE-CoreyOnline")
 );
 
 @use "partials/headerTitleWarframe";
